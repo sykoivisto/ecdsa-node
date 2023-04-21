@@ -1,5 +1,5 @@
 import server from './server';
-import { secp256k1 } from 'ethereum-cryptography/secp256k1';
+import * as secp256k1 from '@noble/secp256k1';
 import { hexToBytes, toHex, utf8ToBytes } from 'ethereum-cryptography/utils';
 
 function Wallet({
@@ -39,7 +39,7 @@ function Wallet({
 				></input>
 			</label>
 
-			<div>Address: {address}</div>
+			<div>Address: {address.slice(0,20)}...</div>
 
 			<div className='balance'>Balance: {balance}</div>
 		</div>

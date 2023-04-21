@@ -1,12 +1,12 @@
-const {secp256k1} = require("ethereum-cryptography/secp256k1");
+const secp = require("@noble/secp256k1");
 const { hexToBytes, toHex, utf8ToBytes } = require("ethereum-cryptography/utils");
 const { keccak256 } = require("ethereum-cryptography/keccak");
 
-const privateKey = secp256k1.utils.randomPrivateKey();
+const privateKey = secp.utils.randomPrivateKey();
 
 console.log('private key', toHex(privateKey))
 
-const publicKey = secp256k1.getPublicKey(privateKey);
+const publicKey = secp.getPublicKey(privateKey);
 
 console.log('public key', toHex(publicKey))
 
